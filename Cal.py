@@ -1,29 +1,35 @@
-while True:
-    print("Options:")
-    print("Enter 'add' for addition")
-    print("Enter 'subtract' for subtraction")
-    print("Enter 'multiply' for multiplication")
-    print("Enter 'divide' for division")
-    print("Enter 'exit' to end the program")
+def add(x, y):
+    return x + y
 
-    user_input = input(": ")
+def subtract(x, y):
+    return x - y
 
-    if user_input == "exit":
-        break
-    elif user_input in ("add", "subtract", "multiply", "divide"):
-        num1 = float(input("Enter first number: "))
-        num2 = float(input("Enter second number: "))
-        
-        if user_input == "add":
-            print(num1, "+", num2, "=", num1 + num2)
-        elif user_input == "subtract":
-            print(num1, "-", num2, "=", num1 - num2)
-        elif user_input == "multiply":
-            print(num1, "*", num2, "=", num1 * num2)
-        elif user_input == "divide":
-            if num2 == 0:
-                print("Cannot divide by zero")
-            else:
-                print(num1, "/", num2, "=", num1 / num2)
-    else:
-        print("Invalid input")
+def multiply(x, y):
+    return x * y
+
+def divide(x, y):
+    if y == 0:
+        return "Cannot divide by zero"
+    return x / y
+
+print("Select operation:")
+print("1. Add")
+print("2. Subtract")
+print("3. Multiply")
+print("4. Divide")
+
+choice = input("Enter choice (1/2/3/4): ")
+
+num1 = float(input("Enter first number: "))
+num2 = float(input("Enter second number: "))
+
+if choice == '1':
+    print(num1, "+", num2, "=", add(num1, num2))
+elif choice == '2':
+    print(num1, "-", num2, "=", subtract(num1, num2))
+elif choice == '3':
+    print(num1, "*", num2, "=", multiply(num1, num2))
+elif choice == '4':
+    print(num1, "/", num2, "=", divide(num1, num2))
+else:
+    print("Invalid input")
